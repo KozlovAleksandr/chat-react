@@ -1,0 +1,9 @@
+.chat-block-companion {
+  height: 80px;
+  width: 100%;
+  padding: 25px;
+  background: #001329;
+  color: #cbcbcb;
+  border-radius: 10px;
+  margin: 20px 0;
+}

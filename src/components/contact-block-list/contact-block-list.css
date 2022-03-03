@@ -1,0 +1,7 @@
+.contact-block-list {
+  width: 100%;
+  height: 500px;
+  background: #001329;
+  border-radius: 15px;
+  overflow: scroll;
+}
