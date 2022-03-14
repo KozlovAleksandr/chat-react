@@ -24,15 +24,26 @@
 .message__bubble {
   max-width: calc(100% - 120px);
   overflow-wrap: break-word;
-  background: #002047;
-  border-radius: 15px 15px 15px 0 / 15px 15px 15px 0;
   font-size: 12px;
   padding: 10px;
   margin: 5px 0;
 }
 
+.right {
+  background: #002047;
+  border: 1px solid rgb(78, 95, 136);
+  border-radius: 15px 15px 0 15px / 15px 15px 0 15px;
+}
+
+.left {
+  background: #014c08;
+  border: 1px solid rgb(101, 136, 78);
+  border-radius: 15px 15px 15px 0 / 15px 15px 15px 0;
+}
+
 .inputArea {
   width: 100%;
+  margin-top: 8px;
   display: flex;
 }
 

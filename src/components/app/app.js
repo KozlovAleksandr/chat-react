@@ -9,13 +9,11 @@ const contacts = [
   { name: "Dr. Harleen Quinzel", avatar: "", isOnline: false, id: 3 },
 ];
 
-const messageList = ["Первое сообщение", "Второе сообщение"];
-
 function App() {
   return (
     <div className="app">
       <ContactBlock data={contacts} />
-      <ChatBlock data={messageList} />
+      <ChatBlock />
     </div>
   );
 }
