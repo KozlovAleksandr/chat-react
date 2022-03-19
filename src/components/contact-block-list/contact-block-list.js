@@ -2,12 +2,13 @@ import ContactBlockListItem from "../contact-block-list-item/contact-block-list-
 
 import "./contact-block-list.css";
 
-const ContactBlockList = () => {
-  return (
-    <div className="contact-block-list">
-      <ContactBlockListItem />
-    </div>
-  );
+const ContactBlockList = ({ data }) => {
+  const elements = data.map((item) => {
+    const { id, ...itemProps } = item;
+    return <ContactBlockListItem key={id} {...itemProps} />;
+  });
+
+  return <div className="contact-block-list">{elements}</div>;
 };
 
 export default ContactBlockList;
