@@ -1,5 +1,5 @@
-import ContactBlockSearch from "../contact-block-search/contact-block-search";
-import ContactBlockList from "../contact-block-list/contact-block-list";
+import ContactBlockSearch from "./contact-block-search/contact-block-search";
+import ContactBlockList from "./contact-block-list/contact-block-list";
 
 import "./contact-block.css";
 

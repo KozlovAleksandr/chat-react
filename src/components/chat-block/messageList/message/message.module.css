@@ -1,0 +1,18 @@
+.message {
+  max-width: calc(100% - 180px);
+  min-width: 180px;
+  overflow-wrap: break-word;
+  font-size: 12px;
+  padding: 10px;
+  margin: auto 0 5px 0;
+  background: #014c08;
+  border: 1px solid rgb(101, 136, 78);
+  border-radius: 15px 15px 15px 0 / 15px 15px 15px 0;
+}
+
+.userMessage {
+  margin: 0 0 5px auto;
+  background: #002047;
+  border: 1px solid rgb(78, 95, 136);
+  border-radius: 15px 15px 0 15px / 15px 15px 0 15px;
+}

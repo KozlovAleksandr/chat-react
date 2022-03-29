@@ -1,13 +1,13 @@
-import ChatBlockCompanion from "../chat-block-companion/chat-block-companion";
-import ChatBlockMessageList from "../chat-block-messageList/chat-block-messageList";
+import { Companion } from "./companion/companion";
+import { MessageList } from "./messageList/messageList";
 
 import "./chat-block.css";
 
 const ChatBlock = () => {
   return (
     <div className="chat-block">
-      <ChatBlockCompanion />
-      <ChatBlockMessageList />
+      <Companion />
+      <MessageList />
     </div>
   );
 };

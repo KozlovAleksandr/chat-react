@@ -1,6 +1,5 @@
 import ContactBlock from "../contact-block/contact-block";
 import ChatBlock from "../chat-block/chat-block";
-import avatar from "../app/ava.png";
 
 import "./app.css";
 
