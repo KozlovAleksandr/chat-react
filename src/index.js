@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app";
 
-import { MessageList, Layout, ChatList, Header } from "./components";
-
 import "./global.css";
 
 ReactDOM.render(
