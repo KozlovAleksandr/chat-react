@@ -9,9 +9,9 @@ export function Message({ message }) {
         [styles.userMessage]: message.author === "User",
       })}
     >
-      <h5>{message.author}</h5>
-      <h3>{message.message}</h3>
-      <h6>{message.date}</h6>
+      <p className={cls(styles.userName)}>{message.author}</p>
+      <p className={cls(styles.messageText)}>{message.message}</p>
+      <p className={cls(styles.messageDate)}>{message.date}</p>
     </div>
   );
 }

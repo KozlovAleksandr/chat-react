@@ -1,5 +1,4 @@
-.contact-block-list-item {
-  width: 100%;
+.contactsBlockListItem {
   height: 60px;
   padding: 15px 20px;
   color: #cbcbcb;
@@ -7,17 +6,14 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  /* background-image: url("./ava.png");
-  background-repeat: no-repeat;
-  background-position: 5% center; */
   background: #001329;
   border-radius: 8px;
   transition-duration: 0.4s;
 }
-.contact-block-list-item:not(:last-child) {
+.contactsBlockListItem:not(:last-child) {
   margin-bottom: 1px;
 }
 
-.contact-block-list-item:hover {
+.contactsBlockListItem:hover {
   transform: scale(0.95);
 }

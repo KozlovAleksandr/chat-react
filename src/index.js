@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app";
 
-import "./index.css";
+import { MessageList, Layout, ChatList, Header } from "./components";
+
+import "./global.css";
 
 ReactDOM.render(
   <React.StrictMode>

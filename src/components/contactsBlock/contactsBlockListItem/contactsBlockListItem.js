@@ -1,4 +1,4 @@
-import "./contact-block-list-item.css";
+import "./contactsBlockListItem.css";
 
 const ContactBlockListItem = ({ name, avatar, isOnline }) => {
   let status = "";
@@ -10,7 +10,7 @@ const ContactBlockListItem = ({ name, avatar, isOnline }) => {
   }
 
   return (
-    <div className="contact-block-list-item">
+    <div className="contactsBlockListItem">
       <div>
         <h5>{name}</h5>
         <h6>{status}</h6>

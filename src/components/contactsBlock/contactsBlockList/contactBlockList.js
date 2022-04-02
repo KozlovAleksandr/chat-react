@@ -1,6 +1,6 @@
-import ContactBlockListItem from "../contact-block-list-item/contact-block-list-item";
+import ContactBlockListItem from "../contactsBlockListItem/contactsBlockListItem";
 
-import "./contact-block-list.css";
+import "./contactBlockList.css";
 
 const ContactBlockList = ({ data }) => {
   const elements = data.map((item) => {
@@ -8,7 +8,7 @@ const ContactBlockList = ({ data }) => {
     return <ContactBlockListItem key={id} {...itemProps} />;
   });
 
-  return <div className="contact-block-list">{elements}</div>;
+  return <div className="contactBlockList">{elements}</div>;
 };
 
 export default ContactBlockList;

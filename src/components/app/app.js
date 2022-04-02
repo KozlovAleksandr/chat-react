@@ -1,7 +1,4 @@
-import ContactBlock from "../contact-block/contact-block";
-import ChatBlock from "../chat-block/chat-block";
-
-import "./app.css";
+import { ContactBlock, Layout, ChatBlock } from "../../components";
 
 const contacts = [
   { name: "Selina Kyle", avatar: "", isOnline: false, id: 1 },
@@ -9,13 +6,15 @@ const contacts = [
   { name: "Dr. Harleen Quinzel", avatar: "", isOnline: false, id: 3 },
 ];
 
-function App() {
+const App = () => {
   return (
-    <div className="app">
-      <ContactBlock data={contacts} />
-      <ChatBlock />
-    </div>
+    <>
+      <Layout
+        contsctsBlock={<ContactBlock data={contacts} />}
+        chatBlock={<ChatBlock />}
+      />
+    </>
   );
-}
+};
 
 export default App;

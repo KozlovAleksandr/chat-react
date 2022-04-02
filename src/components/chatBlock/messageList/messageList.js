@@ -6,16 +6,13 @@ import { Send } from "@mui/icons-material";
 
 import { useStyles } from "./useStyles";
 
-// import "./chat-block-messageList.css";
-// import styles from "./chat-block-messageLis.module.css";
-
 export function MessageList() {
   const [value, setValue] = useState("");
   const [messages, setMessages] = useState([
     {
-      author: "Bot",
-      message: "Answer",
-      date: new Date().toLocaleDateString(),
+      author: "Automatic answer",
+      message: "Robot greets you. I wish you a good day and good mood!",
+      date: new Date().toLocaleTimeString(),
     },
   ]);
 
@@ -28,7 +25,7 @@ export function MessageList() {
         {
           author: "User",
           message: value,
-          date: new Date().toLocaleDateString(),
+          date: new Date().toLocaleTimeString(),
         },
       ]);
       setValue("");
@@ -50,9 +47,9 @@ export function MessageList() {
         setMessages([
           ...messages,
           {
-            author: "Bot",
-            message: "Answer",
-            date: new Date().toLocaleDateString(),
+            author: "Automatic answer",
+            message: "Robot greets you. I wish you a good day and good mood!",
+            date: new Date().toLocaleTimeString(),
           },
         ]);
       }, 500);
@@ -64,8 +61,8 @@ export function MessageList() {
   }, [messages]);
 
   return (
-    <div className={styles.chatBlock}>
-      <div className={styles.messagesBlock}>
+    <div className={styles.messagesBlock}>
+      <div className={styles.conversation}>
         {messages.map((message) => (
           <Message message={message} />
         ))}
