@@ -1,4 +1,7 @@
-import { Layout, ChatBlock, ContactsBlock } from "../../components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import { Header } from "../../components";
+import { HomePage, ChatPage } from "../../pages";
 
 const contacts = [
   { name: "Selina Kyle", avatar: "", isOnline: false, id: 1 },
@@ -9,7 +12,17 @@ const contacts = [
 const App = () => {
   return (
     <>
-      <Layout contactsBlock={<ContactsBlock />} chatBlock={<ChatBlock />} />
+      <BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+
+          <Route path="/chat/*" element={<ChatPage />}></Route>
+
+          <Route path="*" element={<h1>404</h1>} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

@@ -23,12 +23,11 @@ const useStyles = makeStyles(() => {
   };
 });
 
-export function Contact({ title, icon, selected, handleListItemClick }) {
+export function Contact({ title, icon, selected }) {
   const styles = useStyles();
 
   return (
     <ListItemButton
-      onClick={handleListItemClick}
       className={styles.item}
       selected={selected}
     >
