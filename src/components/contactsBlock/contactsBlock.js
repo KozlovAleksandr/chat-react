@@ -1,25 +1,30 @@
 import { useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { List } from "@mui/material";
-import { Contact } from "./contact";
+import { Contact } from "./contact/contact";
+
+import styles from "./contactsBlock.module.css";
 
 export function ContactsBlock() {
+  const { roomId } = useParams();
   const [chats] = useState([
     "Selina Kyle",
     "Poison Ivy",
     "Dr. Harleen Quinzel",
+    "Bot",
   ]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <List component="nav" style={{ padding: "0" }}>
+    <List component="nav" className={styles.list}>
       {chats.map((chat, index) => (
-        <Contact
-          title={chat}
-          key={index}
-          icon={index}
-          selected={selectedIndex === index}
-          handleListItemClick={() => setSelectedIndex(index)}
-        />
+        <Link key={index} to={`/chat/${chat}`} className={styles.link}>
+          <Contact
+            title={chat}
+            key={index}
+            icon={index}
+            selected={roomId === chat}
+          />
+        </Link>
       ))}
     </List>
   );
