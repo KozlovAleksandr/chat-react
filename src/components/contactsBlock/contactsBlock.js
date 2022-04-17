@@ -3,8 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { List } from "@mui/material";
 import { Contact } from "./contact/contact";
 
-import styles from "./contactsBlock.module.css";
-
 export function ContactsBlock() {
   const { roomId } = useParams();
   const [chats] = useState([
@@ -15,9 +13,13 @@ export function ContactsBlock() {
   ]);
 
   return (
-    <List component="nav" className={styles.list}>
+    <List component="nav" style={{ padding: "0" }}>
       {chats.map((chat, index) => (
-        <Link key={index} to={`/chat/${chat}`} className={styles.link}>
+        <Link
+          key={index}
+          to={`/chat/${chat}`}
+          style={{ textDecoration: "none" }}
+        >
           <Contact
             title={chat}
             key={index}

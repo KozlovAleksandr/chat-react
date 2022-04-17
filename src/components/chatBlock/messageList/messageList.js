@@ -30,20 +30,6 @@ export function MessageList() {
     }
   }, [messageList]);
 
-  // const sendMessage = () => {
-  //   if (value) {
-  //     setMessageList([
-  //       ...messageList,
-  //       {
-  //         author: "User",
-  //         message: value,
-  //         date: new Date().toLocaleTimeString(),
-  //       },
-  //     ]);
-  //     setValue("");
-  //   }
-  // };
-
   const sendMessage = useCallback(
     (message, author = "User") => {
       if (message) {
@@ -70,28 +56,6 @@ export function MessageList() {
     }
   };
 
-  // useEffect(() => {
-  //   const lastMessages = messageList[messageList.length - 1];
-  //   let timerID = null;
-
-  //   if (messageList.length && lastMessages.author === "User") {
-  //     timerID = setTimeout(() => {
-  //       setMessageList([
-  //         ...messageList,
-  //         {
-  //           author: "Automatic answer",
-  //           message: "Robot greets you. I wish you a good day and good mood!",
-  //           date: new Date().toLocaleTimeString(),
-  //         },
-  //       ]);
-  //     }, 500);
-  //   }
-
-  //   return () => {
-  //     clearInterval(timerID);
-  //   };
-  // }, [messageList]);
-
   useEffect(() => {
     const messages = messageList[roomId] ?? [];
     const lastMessage = messages[messages.length - 1];
@@ -103,7 +67,7 @@ export function MessageList() {
           "Robot greets you. I wish you a good day and good mood!",
           "Bot"
         );
-      }, 500);
+      }, 1500);
     }
 
     return () => {
