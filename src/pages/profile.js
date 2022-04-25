@@ -1,20 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
 import { toggleVisibleProfile } from "../store/profile";
+import { ProfileForm } from "../components";
 
-import { Switch, List, ListItem, ListItemText, Divider } from "@mui/material";
-
-// const label = { inputProps: { "aria-label": "Switch demo" } };
+import { Switch, List, ListItem, Divider } from "@mui/material";
 
 export const ProfilePage = () => {
   const dispatch = useDispatch();
-  const { firstName, lastName, isVisibleProfile } = useSelector(
+  const { firstName, lastName, isVisibleProfile, country } = useSelector(
     (state) => state.profile
   );
 
   return (
-    <div>
+    <div style={{ justifyContent: "center", color: "grey" }}>
       <Switch
-        // {...label}
         defaultChecked
         onChange={() => dispatch(toggleVisibleProfile())}
       />
@@ -28,6 +26,17 @@ export const ProfilePage = () => {
           <ListItem style={{ justifyContent: "center" }}>
             <h3>Last name: {lastName} </h3>
           </ListItem>
+          <Divider style={{ borderColor: "pink" }} />
+          <ListItem style={{ justifyContent: "center" }}>
+            <h3>Country: {country} </h3>
+          </ListItem>
+
+          <Divider style={{ borderColor: "pink", margin: "50px 0" }} />
+          <ProfileForm
+            firstName={firstName}
+            lastName={lastName}
+            country={country}
+          />
         </List>
       )}
     </div>
