@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   createConversation,
   deleteConversation,
+  conversationsSelector,
 } from "../../store/conversations";
 
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -14,9 +15,7 @@ export function ContactsBlock() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const conversations = useSelector(
-    (state) => state.conversations.conversations
-  );
+  const conversations = useSelector(conversationsSelector);
 
   const create = () => {
     const name = prompt("Name the Chat");
@@ -45,11 +44,10 @@ export function ContactsBlock() {
       </Button>
 
       {conversations.map((chat, index) => (
-        <div>
+        <div key={index}>
           <Link
-            key={index}
             to={`/chat/${chat}`}
-            style={{ textDecoration: "none" }}
+            style={{ textDecoration: "none", position: "relative" }}
           >
             <Contact
               title={chat}
@@ -57,8 +55,17 @@ export function ContactsBlock() {
               icon={index}
               selected={roomId === chat}
             />
+            <DeleteOutlineIcon
+              style={{
+                position: "absolute",
+                cursor: "pointer",
+                top: "23px",
+                left: "100px",
+              }}
+              color="warning"
+              onClick={() => deleteCon(chat)}
+            />
           </Link>
-          <DeleteOutlineIcon color="error" onClick={() => deleteCon(chat)} />
         </div>
       ))}
     </List>
