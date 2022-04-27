@@ -10,6 +10,14 @@
   border: 1px solid rgb(101, 136, 78);
   border-radius: 15px 15px 15px 0 / 15px 15px 15px 0;
   text-align: start;
+  position: relative;
+}
+
+.del {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
 }
 
 .userMessage {
