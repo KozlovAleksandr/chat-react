@@ -65,7 +65,7 @@ export function MessageList() {
     ) {
       timerId = setTimeout(() => {
         send("Robot greets you. I wish you a good day and good mood!", "Bot");
-      }, 1500);
+      }, 700);
     }
 
     return () => {
