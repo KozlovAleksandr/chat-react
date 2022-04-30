@@ -30,6 +30,8 @@ export function ContactsBlock() {
 
   const deleteCon = (conversation) => {
     dispatch(deleteConversation(conversation));
+
+    // ! НЕ РАБОАТЕТ ПЕРЕАДРЕСАЦИЯ ПОСЛЕ УДАЛЕНИЯ ЧАТА
     navigate("/chat");
   };
 

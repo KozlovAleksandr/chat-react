@@ -11,7 +11,14 @@ export const ProfilePage = () => {
   );
 
   return (
-    <div style={{ justifyContent: "center", color: "grey" }}>
+    <div
+      style={{
+        justifyContent: "center",
+        color: "grey",
+        height: "calc(70vh + 100px)",
+        margin: "20px 0 0 0",
+      }}
+    >
       <Switch
         defaultChecked
         onChange={() => dispatch(toggleVisibleProfile())}

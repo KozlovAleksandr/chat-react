@@ -8,12 +8,11 @@ export const botMessage = (store) => (next) => (action) => {
     setTimeout(() => {
       store.dispatch(
         sendMessage(action.payload.roomId, {
-          author: "Bot",
-          message:
-            "Middleware greets you. I wish you a good day and good mood!",
+          author: "Middleware",
+          message: "Join the wishes",
         })
       );
-    }, 1400);
+    }, 1600);
   }
 
   return next(action);

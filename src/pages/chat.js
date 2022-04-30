@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { EmptyChat } from "./emptyChat";
 
 import { Layout, ChatBlock, ContactsBlock } from "../components";
 
@@ -11,7 +12,7 @@ export const ChatPage = () => {
           element={
             <Layout
               contactsBlock={<ContactsBlock />}
-              chatBlock={<ChatBlock />}
+              chatBlock={<EmptyChat />}
             />
           }
         />

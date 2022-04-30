@@ -14,7 +14,7 @@ import { Input, InputAdornment } from "@mui/material";
 import { Send } from "@mui/icons-material";
 
 import { useStyles } from "./useStyles";
-import { sendMessage, messagesSelector } from "../../../store/messages";
+import { sendMessageWithBot, messagesSelector } from "../../../store/messages";
 
 import { usePrevios } from "../../../hooks/use-previous";
 
@@ -42,7 +42,9 @@ export function MessageList() {
   const send = useCallback(
     (message, author = "User") => {
       if (message) {
-        dispatch(sendMessage(roomId, { author: author || "Bot", message }));
+        dispatch(
+          sendMessageWithBot(roomId, { author: author || "Bot", message })
+        );
         setValue("");
       }
     },
@@ -64,8 +66,8 @@ export function MessageList() {
       lastMessage.author === "User"
     ) {
       timerId = setTimeout(() => {
-        send("Robot greets you. I wish you a good day and good mood!", "Bot");
-      }, 700);
+        send("I wish you a good day and good mood!", "Bot");
+      }, 800);
     }
 
     return () => {
