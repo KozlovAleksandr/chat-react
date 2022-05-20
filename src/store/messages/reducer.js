@@ -1,38 +1,26 @@
-import { nanoid } from "nanoid";
-import { SEND_MESSAGE, DELETE_MESSAGE } from "./types";
+import {
+  SEND_MESSAGE,
+  DELETE_MESSAGE,
+  GET_MESSAGES_START,
+  GET_MESSAGES_SUCCESS,
+  GET_MESSAGES_ERROR,
+  CREATE_MESSAGES_START,
+  CREATE_MESSAGES_SUCCESS,
+  CREATE_MESSAGES_ERROR,
+} from "./types";
 import { DELETE_CONVERSATION } from "../types";
 
 const initialState = {
-  messages: {
-    Bot: [
-      {
-        author: "Automatic answer",
-        message: "Robot greets you. I wish you a good day and good mood!",
-        date: new Date().toLocaleTimeString(),
-        id: nanoid(),
-      },
-    ],
-  },
+  messages: {},
+  pending: false,
+  error: null,
+
+  pendingSendMessage: false,
+  errorSendMessage: null,
 };
 
 export const messageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SEND_MESSAGE:
-      return {
-        ...state,
-        messages: {
-          ...state.messages,
-          [action.payload.roomId]: [
-            ...(state.messages[action.payload.roomId] ?? []),
-            {
-              ...action.payload.message,
-              date: new Date().toLocaleTimeString(),
-              id: nanoid(),
-            },
-          ],
-        },
-      };
-
     case DELETE_MESSAGE:
       return {
         ...state,
@@ -43,7 +31,10 @@ export const messageReducer = (state = initialState, action) => {
           ),
         },
       };
+
     case DELETE_CONVERSATION:
+      // delete state.messages[action.payload]
+
       return {
         ...state,
         messages: Object.entries(state.messages).reduce(
@@ -51,11 +42,43 @@ export const messageReducer = (state = initialState, action) => {
             if (key === action.payload) {
               return messages;
             }
+
             messages[key] = value;
+
             return messages;
           },
           {}
         ),
+      };
+
+    case GET_MESSAGES_START:
+      return { ...state, pending: true, error: null };
+    case GET_MESSAGES_SUCCESS:
+      return { ...state, pending: false, messages: action.payload };
+    case GET_MESSAGES_ERROR:
+      return { ...state, pending: false, error: action.payload };
+
+    case CREATE_MESSAGES_START:
+      return { ...state, pendingSendMessage: true, errorSendMessage: null };
+    case SEND_MESSAGE:
+    case CREATE_MESSAGES_SUCCESS:
+      return {
+        ...state,
+        pendingSendMessage: false,
+        messages: {
+          ...state.messages,
+          [action.payload.roomId]: [
+            ...(state.messages[action.payload.roomId] ?? []),
+            action.payload.message,
+          ],
+        },
+      };
+
+    case CREATE_MESSAGES_ERROR:
+      return {
+        ...state,
+        pendingSendMessage: false,
+        errorSendMessage: action.payload,
       };
     default:
       return state;

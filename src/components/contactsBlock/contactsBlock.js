@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import {
-  createConversation,
+  createConversationFB,
   deleteConversation,
   conversationsSelector,
 } from "../../store/conversations";
@@ -15,14 +15,14 @@ export function ContactsBlock() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const conversations = useSelector(conversationsSelector);
+  const { conversations, pending } = useSelector(conversationsSelector);
 
   const create = () => {
     const name = prompt("Name the Chat");
     const isValidName = !conversations.includes(name);
 
     if (!!name && isValidName) {
-      dispatch(createConversation(name));
+      dispatch(createConversationFB(name));
     } else {
       alert("Chat exists");
     }
@@ -30,10 +30,13 @@ export function ContactsBlock() {
 
   const deleteCon = (conversation) => {
     dispatch(deleteConversation(conversation));
-
     // ! НЕ РАБОАТЕТ ПЕРЕАДРЕСАЦИЯ ПОСЛЕ УДАЛЕНИЯ ЧАТА
     navigate("/chat");
   };
+
+  if (pending) {
+    return <h1>PENDING ...</h1>;
+  }
 
   return (
     <List component="nav" style={{ padding: "0" }}>
@@ -51,12 +54,7 @@ export function ContactsBlock() {
             to={`/chat/${chat}`}
             style={{ textDecoration: "none", position: "relative" }}
           >
-            <Contact
-              title={chat}
-              key={index}
-              icon={index}
-              selected={roomId === chat}
-            />
+            <Contact title={chat} key={index} selected={roomId === chat} />
             <DeleteOutlineIcon
               style={{
                 position: "absolute",

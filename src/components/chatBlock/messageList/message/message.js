@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import HighlightOffOutlinedIcon from "@mui/icons-material/HighlightOffOutlined";
 
 import cls from "classnames";
-import { Button } from "@mui/material";
 
 import { deleteMessage } from "../../../../store/messages"; // библиотека имён классов
 import styles from "./message.module.css";

@@ -8,14 +8,12 @@ import React, {
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch, shallowEqual } from "react-redux";
 
-import { Message } from "./message/message";
-
 import { Input, InputAdornment } from "@mui/material";
 import { Send } from "@mui/icons-material";
 
+import { Message } from "./message/message";
 import { useStyles } from "./useStyles";
-import { sendMessageWithBot, messagesSelector } from "../../../store/messages";
-
+import { messagesSelector, createMessageFb } from "../../../store/messages";
 import { usePrevios } from "../../../hooks/use-previous";
 
 export function MessageList() {
@@ -30,7 +28,6 @@ export function MessageList() {
   const previosMessagesLength = usePrevios(messages.length);
 
   const [value, setValue] = useState("");
-
   const styles = useStyles();
 
   useEffect(() => {
@@ -42,9 +39,7 @@ export function MessageList() {
   const send = useCallback(
     (message, author = "User") => {
       if (message) {
-        dispatch(
-          sendMessageWithBot(roomId, { author: author || "Bot", message })
-        );
+        dispatch(createMessageFb(roomId, { author: author || "Bot", message }));
         setValue("");
       }
     },
