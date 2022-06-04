@@ -23,7 +23,7 @@ const persistConfig = {
   whitelist: ["profile", "messages"],
 };
 
-const reducer = combineReducers({
+export const reducer = combineReducers({
   profile: profileReducer,
   conversations: conversationsReducer,
   messages: messageReducer,
