@@ -30,6 +30,7 @@ export function Contact({ title, icon, selected }) {
     <ListItemButton
       className={styles.item}
       selected={selected}
+      data-testid="wrapper"
     >
       <ListItem className={styles.icon}>
         <ListItemAvatar>
